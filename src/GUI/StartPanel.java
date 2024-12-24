@@ -5,12 +5,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.util.Timer;
 
 public class StartPanel extends JPanel {
 
-    int width = 960;
-    int height = 540;
+    private int width = 960;
+    private int height = 540;
 
     String curentText = "";
 
@@ -53,7 +52,7 @@ public class StartPanel extends JPanel {
 
         //draw backgrond
         try {
-            g.drawImage(ImageIO.read(new File("src/Afbeeldingen/a1.png")), 0, 0, null);
+            g.drawImage(ImageIO.read(new File("src/GUI/Afbeeldingen/a1.png")), 0, 0, null);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
