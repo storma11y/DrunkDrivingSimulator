@@ -5,8 +5,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class StartPanel extends JPanel {
+public class StartPanel extends JPanel implements KeyListener {
 
     private int width = 960;
     private int height = 540;
@@ -17,6 +19,11 @@ public class StartPanel extends JPanel {
         setPreferredSize(new Dimension(width, height));
         setLayout(new FlowLayout());
         setBackground(Color.green);
+        // set focus
+        setFocusable(true);
+        requestFocusInWindow();
+        // zorgt dat hij luistert
+        addKeyListener(this);
         new Thread(() -> {
             try {
                 // Wacht een paar seconden (bijv. 2 seconden) zodat de GUI volledig laadt
@@ -28,6 +35,8 @@ public class StartPanel extends JPanel {
                 e.printStackTrace();
             }
         }).start();
+
+
 
     }
 
@@ -42,8 +51,18 @@ public class StartPanel extends JPanel {
                 e.printStackTrace();
             }
         }
-
     }
+
+    @Override
+    public void keyTyped(KeyEvent e) {}
+
+    public void keyPressed(KeyEvent e) {
+        e.getKeyChar();
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {}
+
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
