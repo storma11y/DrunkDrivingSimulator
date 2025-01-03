@@ -1,5 +1,6 @@
 package Logic;
 
+import java.awt.event.KeyEvent;
 import java.io.*;
 
 public class Game {
@@ -17,6 +18,14 @@ public class Game {
             writer.close();
 
         } catch (Exception e){
+
+        }
+
+    }
+
+    public void SetInpute(int key){
+        //uitleg voor volgende sessie 
+        if (key == KeyEvent.VK_P){
 
         }
 

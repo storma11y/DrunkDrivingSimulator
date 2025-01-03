@@ -1,5 +1,7 @@
 package GUI;
 
+import Logic.Game;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -10,12 +12,22 @@ import java.awt.event.KeyListener;
 
 public class StartPanel extends JPanel implements KeyListener {
 
-    private int width = 960;
-    private int height = 540;
+    private DrunkFrame frame;
+
+    private int width;
+    private int height;
+
 
     String curentText = "";
 
-    public StartPanel(){
+    public StartPanel(DrunkFrame frame, int width, int height){
+        this.frame = frame;
+
+        this.width = width;
+        this.height = height;
+
+
+
         setPreferredSize(new Dimension(width, height));
         setLayout(new FlowLayout());
         setBackground(Color.green);
@@ -57,7 +69,9 @@ public class StartPanel extends JPanel implements KeyListener {
     public void keyTyped(KeyEvent e) {}
 
     public void keyPressed(KeyEvent e) {
-        e.getKeyChar();
+        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+            frame.SwitchToGame();
+        }
     }
 
     @Override
