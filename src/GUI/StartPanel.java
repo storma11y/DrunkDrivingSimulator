@@ -33,9 +33,9 @@ public class StartPanel extends JPanel implements KeyListener {
         setBackground(Color.green);
         // set focus
         setFocusable(true);
-        requestFocusInWindow();
         // zorgt dat hij luistert
         addKeyListener(this);
+        requestFocus();
         new Thread(() -> {
             try {
                 // Wacht een paar seconden (bijv. 2 seconden) zodat de GUI volledig laadt

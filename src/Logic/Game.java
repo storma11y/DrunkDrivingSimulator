@@ -7,9 +7,23 @@ import java.util.Random;
 public class Game {
     private int difficulty = 0;
 
-    
+    public char goodChar = ' ';
+    public char foeiChar = ' ';
 
-    public void EndGame(int score){
+    public int score = 0;
+
+    public Game() {
+        Scrembel();
+    }
+
+    private void Scrembel(){
+        goodChar = GetRandomChar();
+        while (goodChar == foeiChar || foeiChar == ' '){
+            foeiChar = GetRandomChar();
+        }
+    }
+
+    private void EndGame(){
 
         File file = new File("src/Logic/Hyscore.txt");
 
@@ -46,10 +60,15 @@ public class Game {
     }
 
 
-    public void SetInpute(char letter){
-
-
-
+    public boolean SetInpute(char letter){
+        if (goodChar == letter){
+            score++;
+            Scrembel();
+            EndGame();
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public int GetHyscore(){
