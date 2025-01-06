@@ -40,8 +40,8 @@ public class GamePanel extends JPanel implements KeyListener {
     public void keyTyped(KeyEvent e) {}
 
     @Override
-    public void keyPressed(KeyEvent e) {
-        game.SetInpute(e.getKeyCode());
+    public void keyPressed(KeyEvent e) {;
+        game.SetInpute(e.getKeyChar());
     }
 
     @Override

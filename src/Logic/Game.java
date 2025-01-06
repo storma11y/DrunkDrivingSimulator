@@ -2,8 +2,11 @@ package Logic;
 
 import java.awt.event.KeyEvent;
 import java.io.*;
+import java.util.Random;
 
 public class Game {
+    private int difficulty = 0;
+
 
     public void EndGame(int score){
 
@@ -23,11 +26,27 @@ public class Game {
 
     }
 
-    public void SetInpute(int key){
-        //uitleg voor volgende sessie 
-        if (key == KeyEvent.VK_P){
-
+    private char GetRandomChar(){
+        Random rand = new Random();
+        int n = rand.nextInt(15);
+        char[] optiesCase0 = {};
+        char[] optiesCase1 = {};
+        char[] optiesCase2 = {};
+        switch (difficulty) {
+            case 0:
+                return optiesCase0[n];
+            case 1:
+                return optiesCase1[n];
+            case 2:
+                return optiesCase2[n];
         }
+        return 'a';
+    }
+
+
+    public void SetInpute(char letter){
+
+
 
     }
 
