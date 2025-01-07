@@ -11,9 +11,8 @@ public class Game {
 
     public int score = 0;
 
-    public Game() {Scrembel();
-
-
+    public Game() {
+        Scrembel();
     }
 
     private int Scrembel(){
@@ -21,17 +20,15 @@ public class Game {
         while (goodChar == foeiChar || foeiChar == ' '){
             foeiChar = GetRandomChar();
         }
+        if (score <= 15) {
+            difficulty = 0;
+        } else if (score >= 15 && score <= 30) {
+            difficulty = 1;
+        } else{
+            difficulty = 2;
+        }
 
-
-            if (score <= 15) {
-                difficulty = 0;
-            } else if (score >= 15 && score <= 30) {
-                difficulty = 1;
-            } else{
-                difficulty = 2;
-            }
-
-            return difficulty;  // Retourneer de difficulty
+        return difficulty;  // Retourneer de difficulty
 
     }
 
@@ -77,9 +74,9 @@ public class Game {
         if (goodChar == letter){
             score++;
             Scrembel();
-            EndGame();
             return false;
         } else {
+            EndGame();
             return true;
         }
     }
