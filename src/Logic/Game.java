@@ -1,6 +1,5 @@
 package Logic;
 
-import java.awt.event.KeyEvent;
 import java.io.*;
 import java.util.Random;
 
@@ -12,15 +11,28 @@ public class Game {
 
     public int score = 0;
 
-    public Game() {
-        Scrembel();
+    public Game() {Scrembel();
+
+
     }
 
-    private void Scrembel(){
+    private int Scrembel(){
         goodChar = GetRandomChar();
         while (goodChar == foeiChar || foeiChar == ' '){
             foeiChar = GetRandomChar();
         }
+
+
+            if (score <= 15) {
+                difficulty = 0;
+            } else if (score >= 15 && score <= 30) {
+                difficulty = 1;
+            } else{
+                difficulty = 2;
+            }
+
+            return difficulty;  // Retourneer de difficulty
+
     }
 
     private void EndGame(){
@@ -58,6 +70,7 @@ public class Game {
         }
         return 'a';
     }
+
 
 
     public boolean SetInpute(char letter){
