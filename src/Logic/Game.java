@@ -58,7 +58,7 @@ public class Game {
         int n = rand.nextInt(15);
         char[] optiesCase0 = {'a', 'd', 's', 'w', 'r', 'f', 'd', 'z', 'x', 'e', 'i', 'k', 'l', 'm', 'h'};
         char[] optiesCase1 = {'A', 'B', 'D', 'W', 'j', 'o', '0', 'O', '9', 'k', 'K', 'L', 'I', 'i', 'z'};
-        char[] optiesCase2 = {'l', 'I', '|', '*', 'J', '(', '*', 'G', '&', '%', '^', 'J', 'K', '}', '{'};
+        char[] optiesCase2 = {'l', 'I', '|', '*', 'j', '(', '*', 'g', '&', '%', '^', 'J', 'K', '}', '{'};
 
         switch (difficulty) {
             case 0:
