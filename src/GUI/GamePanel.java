@@ -43,23 +43,15 @@ public class GamePanel extends JPanel implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         // Controleer of de Shift-toets ingedrukt is
-
-        if (e.getKeyCode() == KeyEvent.VK_SHIFT) {
+        if (e.getKeyCode() == KeyEvent.VK_SHIFT || e.getKeyCode() == KeyEvent.VK_CAPS_LOCK) {
             return;
         }
         char keyChar = e.getKeyChar();
-        System.out.println(keyChar);
-
-        System.out.println(keyChar);
         if (game.SetInpute(keyChar)){
-            frame.SwitchToEnd();
+            frame.SwitchToEnd(game.score);
         }
         repaint();
 
-    }
-    private boolean isFalit(char c) {
-        String specialChars = "`~!@#$%^&*()_+1234567890-=qwertyuiopasdfghjklzxcvbnm{[]}|";
-        return specialChars.indexOf(c) != -1;
     }
 
 
@@ -80,22 +72,24 @@ public class GamePanel extends JPanel implements KeyListener {
             try {
                 g.drawImage(ImageIO.read(new File("src/GUI/Afbeeldingen/A2.png")), 0, 0, null);
 
-                g.drawString(String.valueOf(game.goodChar), width/4, height/2 );
-                g.drawString(String.valueOf(game.foeiChar), width/4*3, height/2 );
+                g.drawString(String.valueOf(game.goodChar), width/4-70, height/2 );
+                g.drawString(String.valueOf(game.foeiChar), width/4*3+70, height/2 );
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         } else {
             try {
                 g.drawImage(ImageIO.read(new File("src/GUI/Afbeeldingen/A3.png")), 0, 0, null);
-                g.drawString(String.valueOf(game.goodChar), width/4*3, height/2 );
-                g.drawString(String.valueOf(game.foeiChar), width/4, height/2 );
+                g.drawString(String.valueOf(game.goodChar), width/4*3+70, height/2 );
+                g.drawString(String.valueOf(game.foeiChar), width/4-70, height/2 );
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
 
+        
 
+        g.drawString(String.valueOf(frame.BerekenPromiel(game.score))+"‰    ", width/2, height/10 );
 //        g.fillRect(0,0,1000,1000);
     }
 }

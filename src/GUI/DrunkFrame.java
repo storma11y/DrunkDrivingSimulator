@@ -21,6 +21,10 @@ public class DrunkFrame extends JFrame {
         Music.PlayBackgrondMusic("src/GUI/Music/HTH.mp3 ");
     }
 
+    public double BerekenPromiel(int score){
+        return Math.round((0.2 + score * 0.075) * 1000.0) / 1000.0;
+    }
+
     public void SwitchToGame(){
         getContentPane().removeAll();
         GamePanel gamePanel = new GamePanel(this, width, height);
@@ -29,9 +33,9 @@ public class DrunkFrame extends JFrame {
         repaint();
         SwingUtilities.invokeLater(() -> gamePanel.requestFocusInWindow());
     }
-    public void SwitchToEnd(){
+    public void SwitchToEnd(int score){
         getContentPane().removeAll();
-        EndPanel endPanel = new EndPanel(this, width, height);
+        EndPanel endPanel = new EndPanel(this, width, height, score);
         add(endPanel);
         revalidate();
         repaint();

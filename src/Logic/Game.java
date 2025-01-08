@@ -4,7 +4,6 @@ import java.io.*;
 import java.util.Random;
 
 public class Game {
-    private int difficulty = 0;
 
     public char goodChar = ' ';
     public char foeiChar = ' ';
@@ -15,21 +14,22 @@ public class Game {
         Scrembel();
     }
 
-    private int Scrembel(){
+    private int GetDifficulty(){
+        if (score <= 15) {
+            return 0;
+        } else if (score >= 15 && score <= 30) {
+            return 1;
+        } else{
+            return 2;
+        }
+    }
+
+    private void Scrembel(){
         goodChar = GetRandomChar();
-        while (goodChar == foeiChar || foeiChar == ' '){
+        foeiChar = GetRandomChar();
+        while (goodChar == foeiChar){
             foeiChar = GetRandomChar();
         }
-        if (score <= 15) {
-            difficulty = 0;
-        } else if (score >= 15 && score <= 30) {
-            difficulty = 1;
-        } else{
-            difficulty = 2;
-        }
-
-        return difficulty;  // Retourneer de difficulty
-
     }
 
     private void EndGame(){
@@ -55,9 +55,9 @@ public class Game {
         int n = rand.nextInt(15);
         char[] optiesCase0 = {'a', 'd', 's', 'w', 'r', 'f', 'd', 'z', 'x', 'e', 'i', 'k', 'l', 'm', 'h'};
         char[] optiesCase1 = {'A', 'B', 'D', 'W', 'j', 'o', '0', 'O', '9', 'k', 'K', 'L', 'I', 'i', 'z'};
-        char[] optiesCase2 = {'l', 'I', '|', '*', 'j', '(', '*', 'g', '&', '%', '^', 'J', 'K', '}', '{'};
+        char[] optiesCase2 = {'L', 'I', '|', '*', 'j', '(', '*', 'g', '&', '%', '^', 'J', 'K', '}', '{'};
 
-        switch (difficulty) {
+        switch (GetDifficulty()) {
             case 0:
                 return optiesCase0[n];
             case 1:
@@ -81,22 +81,6 @@ public class Game {
         }
     }
 
-    public int GetHyscore(){
-        File file = new File("src/Logic/Hyscore.txt");
-        try{
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            String line;
-            int hyscore = 0;
-            while ((line = reader.readLine()) != null){
-                int score = Integer.parseInt(line);
-                if (score > hyscore){
-                    hyscore = score;
-                }
-            }
-            return hyscore;
-        } catch (Exception e){
-            return 0;
-        }
-    }
+
 
 }
