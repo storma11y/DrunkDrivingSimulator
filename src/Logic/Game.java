@@ -2,6 +2,7 @@ package Logic;
 
 import java.io.*;
 import java.util.Random;
+import java.util.Timer;
 
 public class Game {
 
@@ -10,7 +11,10 @@ public class Game {
 
     public int score = 0;
 
+    private long starttijd;
+
     public Game() {
+        starttijd = System.currentTimeMillis();
         Scrembel();
     }
 
@@ -19,9 +23,21 @@ public class Game {
             return 0;
         } else if (score >= 15 && score <= 30) {
             return 1;
-        } else{
+        } else {
             return 2;
         }
+    }
+    public int GetTime(){
+        return (int) (System.currentTimeMillis() - starttijd)+BerekenTimeVermindering();
+    }
+
+    private int BerekenTimeVermindering(){
+        if (score >= 60){
+            return 5500;
+        } else {
+            return (55/36)*score*score;
+        }
+
     }
 
     private void Scrembel(){
@@ -74,6 +90,7 @@ public class Game {
         if (goodChar == letter){
             score++;
             Scrembel();
+            starttijd = System.currentTimeMillis();
             return false;
         } else {
             EndGame();

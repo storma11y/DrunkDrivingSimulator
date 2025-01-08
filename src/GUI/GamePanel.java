@@ -20,6 +20,8 @@ public class GamePanel extends JPanel implements KeyListener {
 
     private DrunkFrame frame;
 
+    private int n;
+
     public GamePanel(DrunkFrame frame, int width, int height){
         this.frame = frame;
 
@@ -50,8 +52,8 @@ public class GamePanel extends JPanel implements KeyListener {
         if (game.SetInpute(keyChar)){
             frame.SwitchToEnd(game.score);
         }
-        repaint();
-
+        Random rand = new Random();
+        n = rand.nextInt(2);
     }
 
 
@@ -61,8 +63,6 @@ public class GamePanel extends JPanel implements KeyListener {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        Random rand = new Random();
-        int n = rand.nextInt(2);
         Font font = new Font("SansSerif", Font.BOLD, 30);
         g.setFont(font);
         g.setColor(Color.decode("#FFD700"));
@@ -90,6 +90,19 @@ public class GamePanel extends JPanel implements KeyListener {
         
 
         g.drawString(String.valueOf(frame.BerekenPromiel(game.score))+"‰    ", width/2, height/10 );
-//        g.fillRect(0,0,1000,1000);
+
+
+        try {
+            g.drawImage(ImageIO.read(new File("src/GUI/Afbeeldingen/Vroem vROEM.jpg")), (int)((double)(width-82)/6000*game.GetTime()), height-31, null);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        if (game.GetTime() >= 6000){
+            frame.SwitchToEnd(game.score);
+        }
+
+        repaint();
+
     }
 }
