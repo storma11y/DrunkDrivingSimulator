@@ -80,7 +80,7 @@ public class EndPanel extends JPanel implements KeyListener {
 
         //draw backgrond
         try {
-            g.drawImage(ImageIO.read(new File("src/GUI/Afbeeldingen/a1.png")), 0, 0, null);
+            g.drawImage(ImageIO.read(new File("src/GUI/Afbeeldingen/end.png")), 0, 0, null);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
