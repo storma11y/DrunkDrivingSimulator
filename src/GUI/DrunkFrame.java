@@ -18,7 +18,7 @@ public class DrunkFrame extends JFrame {
         pack();
         setLocationRelativeTo(null);
         // music
-        Music.PlayBackgrondMusic("src/GUI/Music/spotifydown.com - My Little Pony Theme Song.mp3");
+        Music.PlayBackgrondMusic("src/GUI/Music/HTH.mp3 ");
     }
 
     public void SwitchToGame(){
