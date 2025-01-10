@@ -39,7 +39,7 @@ public class EndPanel extends JPanel implements KeyListener {
     }
 
     private int GetHyscore(){
-        File file = new File("src/Logic/Hyscore.txt");
+        File file = new File(System.getProperty("user.dir"), "HyscoreFile DrunkDrivingSimulator.txt");
         try{
             BufferedReader reader = new BufferedReader(new FileReader(file));
             String line;

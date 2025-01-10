@@ -50,7 +50,9 @@ public class Game {
 
     private void EndGame(){
 
-        File file = new File("src/Logic/Hyscore.txt");
+        File file = new File(System.getProperty("user.dir"), "HyscoreFile DrunkDrivingSimulator.txt");
+
+        System.out.println(file.getAbsoluteFile());
 
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
