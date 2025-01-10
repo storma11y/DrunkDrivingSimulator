@@ -2,6 +2,7 @@ package GUI;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.InputStream;
 
 public class DrunkFrame extends JFrame {
 
@@ -11,14 +12,15 @@ public class DrunkFrame extends JFrame {
     public DrunkFrame() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("Drunk Driving Simulator");
-        setIconImage(new ImageIcon("src/GUI/Afbeeldingen/Logo.png").getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/GUI/Afbeeldingen/Logo.png")).getImage());
         StartPanel startPanel = new StartPanel(this, width, height);
         setResizable(false);
         add(startPanel);
         pack();
         setLocationRelativeTo(null);
         // music
-        Music.PlayBackgrondMusic("src/GUI/Music/HTH.mp3 ");
+        InputStream musicStream = getClass().getResourceAsStream("/GUI/Music/HTH.mp3");
+        Music.PlayBackgrondMusic(musicStream);
     }
 
     public double BerekenPromiel(int score){

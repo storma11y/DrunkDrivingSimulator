@@ -10,21 +10,12 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="file://$USER_HOME$/Downloads/openjfx-23.0.1_windows-x64_bin-sdk/javafx-sdk-23.0.1/lib" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-        <jarDirectory url="file://$USER_HOME$/Downloads/openjfx-23.0.1_windows-x64_bin-sdk/javafx-sdk-23.0.1/lib" recursive="false" />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/jlayer1.0.1/JLayer1.0.1/jl1.0.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/src/Libs/jl1.0.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="jl1.0.1" level="project" />
   </component>
 </module>

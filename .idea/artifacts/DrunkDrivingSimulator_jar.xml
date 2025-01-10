@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DrunkDrivingSimulator:jar">
+    <output-path>$USER_HOME$/Desktop</output-path>
+    <root id="archive" name="DrunkDrivingSimulator.jar">
+      <element id="module-output" name="DrunkDrivingSimulator" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/Libs/jl1.0.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

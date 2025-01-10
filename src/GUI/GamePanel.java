@@ -70,7 +70,9 @@ public class GamePanel extends JPanel implements KeyListener {
         if (n == 0){
             //links is nu goed
             try {
-                g.drawImage(ImageIO.read(new File("src/GUI/Afbeeldingen/A2.png")), 0, 0, null);
+                g.drawImage(ImageIO.read(getClass().getResource("/GUI/Afbeeldingen/A2.png")), 0, 0, null);
+
+//                g.drawImage(ImageIO.read(new File("src/GUI/Afbeeldingen/A2.png")), 0, 0, null);
 
                 g.drawString(String.valueOf(game.goodChar), width/4-70, height/2 );
                 g.drawString(String.valueOf(game.foeiChar), width/4*3+70, height/2 );
@@ -79,7 +81,8 @@ public class GamePanel extends JPanel implements KeyListener {
             }
         } else {
             try {
-                g.drawImage(ImageIO.read(new File("src/GUI/Afbeeldingen/A3.png")), 0, 0, null);
+                g.drawImage(ImageIO.read(getClass().getResource("/GUI/Afbeeldingen/A3.png")), 0, 0, null);
+//                g.drawImage(ImageIO.read(new File("src/GUI/Afbeeldingen/A3.png")), 0, 0, null);
                 g.drawString(String.valueOf(game.goodChar), width/4*3+70, height/2 );
                 g.drawString(String.valueOf(game.foeiChar), width/4-70, height/2 );
             } catch (IOException e) {
@@ -93,7 +96,8 @@ public class GamePanel extends JPanel implements KeyListener {
 
 
         try {
-            g.drawImage(ImageIO.read(new File("src/GUI/Afbeeldingen/Vroem vROEM.jpg")), (int)((double)(width-82)/6000*game.GetTime()), height-31, null);
+            g.drawImage(ImageIO.read(getClass().getResource("/GUI/Afbeeldingen/Vroem vROEM.jpg")), (int)((double)(width-82)/6000*game.GetTime()), height-31, null);
+//            g.drawImage(ImageIO.read(new File("src/GUI/Afbeeldingen/Vroem vROEM.jpg")), (int)((double)(width-82)/6000*game.GetTime()), height-31, null);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

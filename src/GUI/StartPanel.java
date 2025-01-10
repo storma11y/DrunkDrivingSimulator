@@ -5,7 +5,6 @@ import Logic.Game;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
 import java.io.IOException;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -85,7 +84,8 @@ public class StartPanel extends JPanel implements KeyListener {
 
         //draw backgrond
         try {
-            g.drawImage(ImageIO.read(new File("src/GUI/Afbeeldingen/a1.png")), 0, 0, null);
+            g.drawImage(ImageIO.read(getClass().getResource("/GUI/Afbeeldingen/A1.png")), 0, 0, null);
+//            g.drawImage(ImageIO.read(new File("src/GUI/Afbeeldingen/a1.png")), 0, 0, null);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
