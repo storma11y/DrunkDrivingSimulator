@@ -33,7 +33,7 @@ public class Game {
 
     private int BerekenTimeVermindering(){
         if (score >= 60){
-            return 5500;
+            return (55/36)*score*score;
         } else {
             return (55/36)*score*score;
         }
